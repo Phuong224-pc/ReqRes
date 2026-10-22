@@ -1,24 +1,26 @@
-name: API Performance Monitor
+name: Shift-Right API Performance Monitor
 
 on:
   schedule:
-    - cron: '0 * * * *' # Chạy mỗi giờ một lần
-  workflow_dispatch:
+    - cron: '0 * * * *' # Chạy tự động mỗi giờ[cite: 5]
+  workflow_dispatch:    # Cho phép bấm chạy thủ công trên GitHub[cite: 5]
 
 jobs:
   monitor:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Install Postman CLI
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Newman
+        run: npm install -g newman
+
+      - name: Run Monitor Collection
         run: |
-          curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
-
-      - name: Login to Postman CLI
-        run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
-
-      - name: Run Monitor Collection via Postman CLI
-        run: |
-          postman collection run "58215712-7306474c-aa3f-4c6a-877e-bd0c5db1279e" \
-            -e "58215712-36802088-08a2-408d-8a64-5f44f3e7bf0d"
+          newman run monitor_collection.json --reporters cli
