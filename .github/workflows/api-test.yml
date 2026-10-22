@@ -23,7 +23,7 @@ jobs:
 
       - name: Run Newman Tests
         run: |
-          newman run ReqRes_Collection.json \
+          newman run "2474802010458_TruongTranThanhPhuong_ReqRes.postman_collection.json" \
             -e ReqRes_Environment.json \
             -d users.csv \
             --reporters cli,htmlextra \
