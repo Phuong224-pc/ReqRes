@@ -1,0 +1,28 @@
+{
+	"id": "36802088-08a2-408d-8a64-5f44f3e7bf0d",
+	"name": "2474802010458_TruongTranThanhPhuong_ReqRes_Env",
+	"values": [
+		{
+			"key": "baseUrl",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "userId",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "userToken",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"color": null,
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2026-10-22T07:05:42.041Z",
+	"_postman_exported_using": "Postman/12.33.0"
+}
