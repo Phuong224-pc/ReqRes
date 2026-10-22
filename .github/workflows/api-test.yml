@@ -21,7 +21,7 @@ jobs:
 
       - name: Run API tests via Postman CLI
         run: |
-          postman collection run "58215712-7306474c-aa3f-4c6a-877e-bd0c5db1279e" \
+         newman run "58215712-7306474c-aa3f-4c6a-877e-bd0c5db1279e" \
             -e "58215712-36802088-08a2-408d-8a64-5f44f3e7bf0d" \
             -d users.csv \
             --reporters cli,htmlextra \
